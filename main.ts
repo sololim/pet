@@ -22,6 +22,8 @@ input.onGesture(Gesture.LogoDown, function () {
         music.setVolume(95)
     }
 })
+music.startMelody(music.builtInMelody(Melodies.Funk), MelodyOptions.Once)
+basic.showString("Loading")
 basic.showString("-----------------------")
 basic.showLeds(`
     . # . # .
@@ -31,7 +33,6 @@ basic.showLeds(`
     . . # . .
     `)
 basic.forever(function () {
-    soundExpression.happy.playUntilDone()
     basic.showLeds(`
         . # . # .
         . . . . .
