@@ -8,6 +8,7 @@ input.onGesture(Gesture.SixG, function () {
         `)
 })
 input.onGesture(Gesture.Shake, function () {
+    soundExpression.spring.playUntilDone()
     basic.showLeds(`
         . . . . .
         . # . # .
@@ -16,7 +17,21 @@ input.onGesture(Gesture.Shake, function () {
         . # . # .
         `)
 })
+input.onGesture(Gesture.LogoDown, function () {
+    if (input.soundLevel() > 1) {
+        music.setVolume(95)
+    }
+})
+basic.showString("-----------------------")
+basic.showLeds(`
+    . # . # .
+    # # # # #
+    # # # # #
+    . # # # .
+    . . # . .
+    `)
 basic.forever(function () {
+    soundExpression.happy.playUntilDone()
     basic.showLeds(`
         . # . # .
         . . . . .
@@ -24,10 +39,9 @@ basic.forever(function () {
         . # # # .
         . . . . .
         `)
-    music.playMelody("G B A G C5 B A B ", 250)
 })
 basic.forever(function () {
-    if (input.soundLevel() > 3) {
+    if (input.soundLevel() > 50) {
         music.setVolume(0)
     }
 })
